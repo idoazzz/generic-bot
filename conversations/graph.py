@@ -36,9 +36,9 @@ class ConversationGraph:
         node_payload.pop('metadata')
         return node_payload
 
-    def get_node_choices(self, node: str):
-        node: dict = self.nodes.get(node)
-        if not node:
+    def get_node_choices(self, node_name: str):
+        node_name: dict = self.nodes.get(node_name)
+        if not node_name:
             return
 
-        return node.get('metadata', {}).get('choices').copy()
+        return node_name.get('metadata', {}).get('choices').copy()
