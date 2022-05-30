@@ -1,3 +1,12 @@
+from typing import List
+
+EXAMPLE_COMPONENT: List[dict] = [
+    {
+        'type': 'body', 'parameters': [{'type': 'text', 'text': 'ido'}]
+    }
+]
+
+
 SAMPLE_BOT = {
     'customer': {
         # Identifiers of customer
@@ -8,7 +17,7 @@ SAMPLE_BOT = {
         'a': {
             'type': 'text',
             'text': {
-                'body': 'X'
+                'body': 'a state! Enter: 1, 2, 3'
             },
             'metadata': {
                 'choices': {  # The user response
@@ -22,7 +31,11 @@ SAMPLE_BOT = {
             # https://developers.facebook.com/docs/whatsapp/cloud-api/get-started-for-bsps
             'type': 'template',
             'template': {
-                'name': 'helloworld'
+                'name': 'custom',
+                'language': {"code": "en_US"},
+                'components': [
+                    {'type': 'body', 'parameters': [{'type': 'text', 'text': 'ido'}]}
+                ]
             },
             'metadata': {
                 'choices': {  # The user response

@@ -1,12 +1,15 @@
-import dataclasses
+from enum import Enum
+from typing import List
 
 
-@dataclasses.dataclass(frozen=True)
-class Templates:
-    Order: str = 'custom'
+class Templates(Enum):
+    Order = 'custom'
 
 
+AVAILABLE_TEMPLATES: List[str] = [e.value for e in Templates]
+
+TEST_TARGET_PHONE_NUMBER: str = '972542214311'
 FROM_PHONE_NUMBER_ID: str = '106092558789170'
-ACCESS_TOKEN: str = 'Bearer EAAXgDNmWZCEsBAEmGbNpRj18uZBzJfrmO6VQJQX5oOqOYRQMZAhioU7ljQ8YPFdRYU3OOeeFluYrSsESUi5CfzrL' \
-                    'H60MjNs6lj4ICpZA5XmBmrMnmhQz9d7mVCTLNM1bXdEt2qG4r0QPuLeEdESv4YHRf3bl75UWGgSC3ilyuiLZCYXzuMxnPZB' \
-                    'ghx0C36paTuS7VMqVnRb7wUFnZBfcrEf'
+ACCESS_TOKEN: str = 'EAAXgDNmWZCEsBAPc5LrHX7bFiZA7GnCEYqVAVzFoVWqONHUOiIN1UYlnPiP64YF3SSBWRzSltvqnnSapogKSGXZAUNX9U' \
+                    'lnacnZBCDMWr2aiR9NZBh8Nuod8Su6fVN0AgCvboe8cL8drJKfMyFZCeVnYmZBLmZAXXfpZAz8tdgOSeUoFA35UJn1ZBR4' \
+                    'epC1n7LpCzKmPjUyZAinibLajrxTrRsr'
