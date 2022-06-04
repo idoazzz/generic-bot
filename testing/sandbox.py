@@ -4,14 +4,17 @@
 # TODO: Add in graph CRUD DB operations.
 # TODO: Tests
 # TODO: Support custom end/start messages (first message is template)
+import sys
+
+sys.path.append("..")
 
 import logging
 from typing import List, Optional
 
-from conversations.consts import SAMPLE_BOT
-from conversations.graph import ConversationGraph
-from whatsapp.utils import dispatch_message, send_text_message
-from conversations.controller import simulate_conversation, apply_action
+from app.conversations.consts import SAMPLE_BOT
+from app.conversations.graph import ConversationGraph
+from app.whatsapp.utils import dispatch_message, send_text_message
+from app.conversations.controller import simulate_conversation, apply_action
 
 logging.basicConfig(level=logging.INFO)
 logger: logging.Logger = logging.getLogger(__name__)

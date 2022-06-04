@@ -17,7 +17,7 @@ SAMPLE_BOT = {
         'a': {
             'type': 'text',
             'text': {
-                'body': 'a state! Enter: 1, 2, 3'
+                'body': 'ENTERED A STATE (regular message)! Enter: 1, 2, 3'
             },
             'metadata': {
                 'choices': {  # The user response
@@ -34,7 +34,7 @@ SAMPLE_BOT = {
                 'name': 'custom',
                 'language': {"code": "en_US"},
                 'components': [
-                    {'type': 'body', 'parameters': [{'type': 'text', 'text': 'ido'}]}
+                    {'type': 'body', 'parameters': [{'type': 'text', 'text': 'ENTERED B STATE (order template message)'}]}
                 ]
             },
             'metadata': {

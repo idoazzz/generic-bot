@@ -4,7 +4,7 @@ from typing import Optional, List
 
 import requests
 
-from whatsapp.consts import ACCESS_TOKEN, FROM_PHONE_NUMBER_ID, TEST_TARGET_PHONE_NUMBER, Templates, AVAILABLE_TEMPLATES
+from app.whatsapp.consts import ACCESS_TOKEN, FROM_PHONE_NUMBER_ID, TEST_TARGET_PHONE_NUMBER, AVAILABLE_TEMPLATES
 
 logger: logging.Logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -62,14 +62,14 @@ def dispatch_message(payload: dict, phone_number: str = TEST_TARGET_PHONE_NUMBER
     logger.info(response.content)
 
 
-def send_text_message(text: str):
+def send_text_message(text: str, phone_number: str = TEST_TARGET_PHONE_NUMBER):
     text_payload: dict = generate_text_payload(body=text)
-    dispatch_message(text_payload)
+    dispatch_message(text_payload, phone_number=phone_number)
 
 
-def send_template_message(template: str, components: List[dict]):
+def send_template_message(template: str, components: List[dict], phone_number: str = TEST_TARGET_PHONE_NUMBER):
     if template not in AVAILABLE_TEMPLATES:
         logging.warning(f'{template} is not valid template name: {AVAILABLE_TEMPLATES}')
         return
     template_payload: dict = generate_template_payload(template, components=components)
-    dispatch_message(template_payload)
+    dispatch_message(template_payload, phone_number=phone_number)
